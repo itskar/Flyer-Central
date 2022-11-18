@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
@@ -6,8 +9,21 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    colors: {
+      transparent: "transparent",
+      current: "currentColor",
+      primaryred: "#940025",
+      primaryredhover: "#800020",
+      secondaryblue: "#0F9AFB",
+      darkgray: "#666666",
+      black: "#000000",
+      white: "#ffffff",
+    },
+    extend: {
+      fontFamily: {
+        Belleza: ["Belleza", ...defaultTheme.fontFamily.sans],
+      },
+    },
   },
   plugins: [],
-
-}
+};
