@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^1.0.6",
+    "missing": "^0.0.1",
     "next": "13.0.2",
     "next-auth": "^4.16.4",
     "next-images": "^1.8.4",
