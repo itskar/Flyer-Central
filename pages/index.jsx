@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <div className="flex columns-2">
       {<Sidebar/>}
-      <LoginImageSection/>
-      <LoginInputForm/>
+      {/* <LoginImageSection/>
+      <LoginInputForm/> */}
     </div>
   );
 }
