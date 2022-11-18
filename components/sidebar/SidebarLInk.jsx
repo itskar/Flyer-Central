@@ -1,15 +1,19 @@
 import { useRouter } from "next/router";
 
-function SidebarLink({ Icon, text, active }) {
+function SidebarLink({ Icon, InactiveIcon, text, active }) {
   const router = useRouter();
   return (
     <div
-      className={`${active ? "text-white" : "text-[#e2e2e2]"} flex items-center justify-center xl:justify-start text-xl space-x-3 hoverAnimation ${
+      className={`${
+        active ? "text-white" : "text-[#e2e2e2]"
+      } flex items-center justify-center xl:justify-start text-xl space-x-3 hoverAnimation ${
         active && "font-bold"
       }`}
       onClick={() => active && router.push("/")}
     >
-      <Icon className="h-7" />
+      <>
+        {active ? <Icon className="h-7" /> : <InactiveIcon className="h-7" />}
+      </>
       <span className="hidden xl:inline">{text}</span>
     </div>
   );
