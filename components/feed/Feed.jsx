@@ -1,0 +1,15 @@
+import Logo from "../../public/static/Flyer-Logo.png";
+import Image from "next/image";
+import Post from "../post/Post"
+
+const Feed = () => {
+    return (
+        <div class="text-white flex-grow
+        border-r border-darkgray max-w-2xl sm:ml-[97px] xl:ml-[340px]">
+        Feed
+        </div>
+    )
+
+}
+
+export default Feed;

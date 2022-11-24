@@ -4,7 +4,7 @@ import LoginImageSection from "../components/login/LoginImageSection";
 import LoginInputForm from "../components/login/LoginInputForm";
 
 const login = () => {
-  const { data: session } = useSession();
+const { data: session } = useSession();
   if (session) {
     if (session.user.email.endsWith("@lewisu.edu")) {
       return (
@@ -20,7 +20,7 @@ const login = () => {
       );
     } else {
       return (
-      <div className="flex columns-2">
+      <div class="flex cols-2">
         <LoginImageSection/>
         <LoginInputForm/>
       </div>
@@ -28,7 +28,7 @@ const login = () => {
     }
   } else {
     return (
-      <div className="flex columns-2">
+      <div class="flex cols-2">
         <LoginImageSection/>
         <LoginInputForm/>
       </div>
