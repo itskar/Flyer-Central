@@ -36,7 +36,7 @@ const Post = () => {
                     nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
             </div>
-            <div className="pt-8 flex justify-center gap-12">
+            <div className="pt-8 flex justify-center gap-20">
                 <PostLink Icon={Reply} InactiveIcon={Reply} active />
                 <PostLink Icon={Retweet} InactiveIcon={Retweet} active />
                 <PostLink Icon={Heart} InactiveIcon={Heart} active />

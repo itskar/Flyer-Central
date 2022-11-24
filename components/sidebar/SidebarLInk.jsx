@@ -5,7 +5,7 @@ function SidebarLink({ Icon, InactiveIcon, text, active }) {
   return (
     <div
       className={`${
-        active ? "text-white" : "text-[#e2e2e2]"
+        active ? "text-white" : "text-[#999999]"
       } flex items-center justify-center xl:justify-start text-xl space-x-3 hoverAnimation ${
         active && "font-bold"
       }`}

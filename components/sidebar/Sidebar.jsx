@@ -30,7 +30,7 @@ const Sidebar = () => {
   const { data: session } = useSession();
 
   return (
-    <div className="hidden sm:flex flex-col items-center border-r-[1px] border-darkgray xl:items-start xl:w-[340px] p-2 fixed h-full">
+    <div className="hidden sm:flex flex-col items-center border-r-[1px] border-darkgray xl:items-start xl:w-[340px] ml-64 p-2 fixed h-full">
       <div className="flex flex-row items-center justify-center hover:cursor-pointer w-20 h-20 p-0 xl:ml-32 xl:w-30 xl:h-30 mt-4">
         <Image src={Logo} width={90} height={90} className="ml-2 xl:ml-6" />
         <h1 className="hidden xl:inline text-white text-2xl text-center font-Belleza">
