@@ -5,8 +5,13 @@ import Post from "../post/Post"
 const Feed = () => {
     return (
         <div class="text-white flex-grow
-        border-r border-darkgray max-w-2xl sm:ml-[97px] xl:ml-[340px]">
-        Feed
+        border-r border-darkgray max-w-2xl sm:ml-[97px] xl:ml-[340px] divide-y-[1px] divide-darkgray">
+        <Post/>
+        <Post/>
+        <Post/>
+        <Post/>
+        <Post/>
+        <Post/>
         </div>
     )
 
