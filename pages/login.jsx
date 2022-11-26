@@ -3,7 +3,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import LoginImageSection from "../components/login/LoginImageSection";
 import LoginInputForm from "../components/login/LoginInputForm";
 
-const login = () => {
+const Login = () => {
 const { data: session } = useSession();
   if (session) {
     if (session.user.email.endsWith("@lewisu.edu")) {
@@ -36,4 +36,4 @@ const { data: session } = useSession();
   }
 };
 
-export default login;
+export default Login;
