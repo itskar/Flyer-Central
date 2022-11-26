@@ -30,7 +30,7 @@ const Post = () => {
             </div>
             <div className="ml-[85px] relative">
                 <div className="w-[500px]">
-                    <p className="absolute top-[-50px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                    <p className="absolute top-[-50px] text-slate-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
                     nisi ut aliquip ex ea commodo consequat.</p>

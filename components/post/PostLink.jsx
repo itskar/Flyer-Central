@@ -5,7 +5,7 @@ function PostLink({ Icon, InactiveIcon, text, active }) {
   return (
     <div
       className={`${
-        active ? "text-darkgray" : "text-[#e2e2e2]"
+        active ? "text-medgray" : "text-[#e2e2e2]"
       } flex items-center justify-center xl:justify-start hoverAnimation ${
         active && "font-bold"
       }`}
