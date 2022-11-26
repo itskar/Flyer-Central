@@ -26,7 +26,7 @@ import {
 } from "@heroicons/react/outline";
 import SidebarLink from "./SidebarLink";
 
-const Sidebar = () => {
+const Sidebar = ({activePage}) => {
   const { data: session } = useSession();
 
   return (
@@ -38,13 +38,13 @@ const Sidebar = () => {
         </h1>
       </div>
       <div className="space-y-1.5 mt-4 mb-2.5 xl:ml-24">
-        <SidebarLink text="Home" Icon={HomeIcon} InactiveIcon={HomeIconOutline} active />
-        <SidebarLink text="Explore" Icon={HashtagIcon} InactiveIcon={HashtagIconOutline}/>
-        <SidebarLink text="Notifications" Icon={BellIcon} InactiveIcon={BellIconOutline}/>
-        <SidebarLink text="Messages" Icon={InboxIcon} InactiveIcon={InboxIconOutline}/>
-        <SidebarLink text="Events" Icon={CalendarIcon} InactiveIcon={CalendarIconOutline}/>
-        <SidebarLink text="Friends" Icon={UserGroupIcon} InactiveIcon={UserGroupIconOutline}/>
-        <SidebarLink text="More" Icon={DotsCircleHorizontalIcon} InactiveIcon={DotsCircleHorizontalIconOutline}/>
+        <SidebarLink text="Home" Icon={HomeIcon} InactiveIcon={HomeIconOutline} active ={activePage=="Home"}/>
+        <SidebarLink text="Explore" Icon={HashtagIcon} InactiveIcon={HashtagIconOutline} active ={activePage=="Explore"}/>
+        <SidebarLink text="Notifications" Icon={BellIcon} InactiveIcon={BellIconOutline} active ={activePage=="Notifications"}/>
+        <SidebarLink text="Messages" Icon={InboxIcon} InactiveIcon={InboxIconOutline} active ={activePage=="Messages"}/>
+        <SidebarLink text="Events" Icon={CalendarIcon} InactiveIcon={CalendarIconOutline} active ={activePage=="Events"}/>
+        <SidebarLink text="Friends" Icon={UserGroupIcon} InactiveIcon={UserGroupIconOutline} active ={activePage=="Friends"}/>
+        <SidebarLink text="More" Icon={DotsCircleHorizontalIcon} InactiveIcon={DotsCircleHorizontalIconOutline} active ={activePage=="More"}/>
       </div>
       <div
         className="text-[#d9d9d9] flex items-center justify-center mt-auto hoverAnimation xl:ml-auto"
