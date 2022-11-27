@@ -31,14 +31,14 @@ const Sidebar = ({activePage}) => {
   const { data: session } = useSession();
 
   return (
-    <div className="hidden sm:flex flex-col items-center xl:items-start xl:w-[340px] ml-64 p-2 fixed h-full">
-      <div className="flex flex-row items-center justify-center hover:cursor-pointer w-20 h-20 p-0 xl:ml-32 xl:w-30 xl:h-30 mt-4">
-        <Image src={Logo} width={90} height={90} className="ml-2 xl:ml-6" />
-        <h1 className="hidden xl:inline text-white text-2xl text-center font-Belleza">
+    <div className="hidden bg-[#161616] sm:flex flex-col items-center w-[96px] lg:ml-40 xl:items-start xl:w-[342px] xl:ml-64 p-2 fixed h-full">
+      <div className="flex flex-row items-center justify-center hover:cursor-pointer sm:w-14 sm:h-14 p-0 xl:ml-28 xl:w-20 xl:h-24 mt-4">
+        <Image src={Logo} alt="Lewis University" width={75} height={75} className="xl:ml-2" quality={100}/>
+        <h1 className="hidden xl:inline text-white text-2xl text-center font-Belleza leading-tight">
           FLYER CENTRAL
         </h1>
       </div>
-      <div className="space-y-1.5 mt-4 mb-2.5 xl:ml-24">
+      <div className="space-y-1.5 mt-4 mb-2.5 xl:ml-16">
         <SidebarLink text="Home" Icon={HomeIcon} InactiveIcon={HomeIconOutline} active ={activePage=="Home"}/>
         <SidebarLink text="Explore" Icon={HashtagIcon} InactiveIcon={HashtagIconOutline} active ={activePage=="Explore"}/>
         <SidebarLink text="Notifications" Icon={BellIcon} InactiveIcon={BellIconOutline} active ={activePage=="Notifications"}/>
@@ -48,7 +48,7 @@ const Sidebar = ({activePage}) => {
         <SidebarLink text="More" Icon={DotsCircleHorizontalIcon} InactiveIcon={DotsCircleHorizontalIconOutline} active ={activePage=="More"}/>
       </div>
       <div
-        className="text-[#d9d9d9] flex items-center justify-center mt-auto hoverAnimation xl:ml-auto"
+        className="text-[#d9d9d9] flex items-center justify-center mt-auto hoverAnimation xl:ml-16"
         onClick={signOut}
       >
         <img
@@ -57,7 +57,7 @@ const Sidebar = ({activePage}) => {
           className="h-10 w-10 rounded-full xl:mr-2.5"
         />
         <div className="hidden xl:inline leading-5">
-          <h4 className="font-bold">Flyer"</h4>
+          <h4 className="font-bold">Flyer</h4>
           <p className="text-[#6e767d]">@lewisu.edu</p>
         </div>
         <DotsHorizontalIcon className="h-5 hidden xl:inline ml-10" />
