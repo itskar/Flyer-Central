@@ -19,6 +19,8 @@ module.exports = {
       medgray: "#666666",
       black: "#000000",
       white: "#ffffff",
+      textWhitePrimary: "#eeeeee",
+      textWhiteSecondary: "#9c9c9c",
     },
     extend: {
       fontFamily: {
