@@ -10,7 +10,7 @@ function SidebarLink({ Icon, InactiveIcon, text, active }) {
       className={`${
         active ? "text-textWhitePrimary" : "text-textWhiteSecondary"
       } flex items-center justify-center xl:justify-start text-xl space-x-3 hoverAnimation`}
-      onClick={() => router.push(`/${text == "Home" ? "/" : route }`)}
+      onClick={async() => router.push(`/${text == "Home" ? "" : route }`)}
     >
       <>
         {active ? <Icon className="h-7 w-9" /> : <InactiveIcon className="h-7 w-9" />}
