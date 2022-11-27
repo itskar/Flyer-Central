@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Logo from "../../public/static/Flyer-Logo.png";
+import UserImg from "../../public/static/user-icon.png";
 
 import {
     ChatIcon as Reply,
@@ -15,8 +15,8 @@ const Post = () => {
     return (
         <div className="mb-2 relative">
             <div className="flex flex-row">
-                <div class="my-5 ml-5 mr-2 h-14 w-14 rounded-full bg-white">
-                    <Image src={Logo}/>
+                <div className="my-5 ml-5 mr-2 h-14 w-14 rounded-full overflow-hidden">
+                    <Image src={UserImg} alt="User"/>
                 </div>
                 <div className="py-5">
                     <a href="" className="font-bold hover:underline">Flyer</a>
@@ -30,7 +30,7 @@ const Post = () => {
             </div>
             <div className="ml-[85px] relative">
                 <div className="w-[500px]">
-                    <p className="absolute top-[-50px] text-slate-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                    <p className="absolute top-[-45px] text-slate-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
                     nisi ut aliquip ex ea commodo consequat.</p>

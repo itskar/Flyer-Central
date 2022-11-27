@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../public/static/Flyer-Logo.png";
+import Logo from "../../public/static/Logo.png";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 

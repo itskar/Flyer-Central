@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import Logo from "../../public/static/Flyer-Logo.png";
+import Logo from "../../public/static/Logo.png";
+import UserImg from "../../public/static/user-icon.png";
 import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
 
@@ -51,7 +52,7 @@ const Sidebar = ({activePage}) => {
         onClick={signOut}
       >
         <img
-          src={Logo.src}
+          src={UserImg.src}
           alt=""
           className="h-10 w-10 rounded-full xl:mr-2.5"
         />
