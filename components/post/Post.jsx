@@ -14,7 +14,7 @@ const Post = () => {
     const [repostCount, setRepostCount] = useState(0);
 
     return (
-      <div className="mb-2 relative">
+      <div className="mb-2 flex flex-col justify-evenly relative">
         <div className="flex flex-row">
           <div className="my-5 ml-5 mr-2 h-12 w-12 xl:h-14 xl:w-14 rounded-full overflow-hidden">
             <Image src={UserImg} alt="User" />
@@ -27,7 +27,7 @@ const Post = () => {
           <div className="py-5 px-1">
             <p className="text-[#6e767d] text-base">@FlyerCentral</p>
           </div>
-          <div className="absolute top-3 right-5">
+          <div className="absolute top-3 right-1">
             <EditButton onClick={() => console.log("Clicked post edit button!")}/>
           </div>
         </div>
@@ -41,7 +41,7 @@ const Post = () => {
             </p>
           </div>
         </div>
-        <div className="pt-8 flex justify-center gap-20">
+        <div className="pt-12 flex justify-center gap-20">
           <CommentButton commentCount = {commentCount} onClick = {() => setCommentCount(commentCount+1)} />
           <RepostButton repostCount = {repostCount} onClick = {() => setRepostCount(repostCount+1)}/>
           <LikeButton likeCount = {likeCount} onClick = {() => setLikeCount(likeCount+1)}/>
