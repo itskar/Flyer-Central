@@ -12,8 +12,8 @@ module.exports = {
     colors: {
       transparent: "transparent",
       current: "currentColor",
-      primaryred: "#940025",
-      primaryredhover: "#800020",
+      primaryPurple: "#8a6ce3",
+      primaryPurplehover: "#535d7c",
       secondaryblue: "#0F9AFB",
       darkgray: "#2e2e2e",
       medgray: "#666666",
@@ -21,6 +21,9 @@ module.exports = {
       white: "#ffffff",
       textWhitePrimary: "#eeeeee",
       textWhiteSecondary: "#9c9c9c",
+      likeRed: "#d2146c",
+      commentBlue: "#1d9bf0",
+      repostGreen: "#00ba7c"
     },
     extend: {
       fontFamily: {

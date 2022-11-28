@@ -9,22 +9,21 @@ import {
   HomeIcon,
   HashtagIcon,
   BellIcon,
-  InboxIcon,
+  EnvelopeIcon,
   CalendarIcon,
   UserGroupIcon,
-  DotsCircleHorizontalIcon,
-  DotsHorizontalIcon,
-} from "@heroicons/react/solid";
+  EllipsisHorizontalIcon,
+} from "@heroicons/react/24/solid";
 
 import {
   HomeIcon as HomeIconOutline,
   HashtagIcon as HashtagIconOutline,
   BellIcon as BellIconOutline,
-  InboxIcon as InboxIconOutline,
+  EnvelopeIcon as EnvelopeIconOutline,
   CalendarIcon as CalendarIconOutline,
   UserGroupIcon as UserGroupIconOutline,
-  DotsCircleHorizontalIcon as DotsCircleHorizontalIconOutline,
-} from "@heroicons/react/outline";
+  EllipsisHorizontalIcon as EllipsisHorizontalIconOutline,
+} from "@heroicons/react/24/outline";
 import SidebarLink from "./SidebarLink";
 
 const Sidebar = ({activePage}) => {
@@ -42,10 +41,10 @@ const Sidebar = ({activePage}) => {
         <SidebarLink text="Home" Icon={HomeIcon} InactiveIcon={HomeIconOutline} active ={activePage=="Home"}/>
         <SidebarLink text="Explore" Icon={HashtagIcon} InactiveIcon={HashtagIconOutline} active ={activePage=="Explore"}/>
         <SidebarLink text="Notifications" Icon={BellIcon} InactiveIcon={BellIconOutline} active ={activePage=="Notifications"}/>
-        <SidebarLink text="Messages" Icon={InboxIcon} InactiveIcon={InboxIconOutline} active ={activePage=="Messages"}/>
+        <SidebarLink text="Messages" Icon={EnvelopeIcon} InactiveIcon={EnvelopeIconOutline} active ={activePage=="Messages"}/>
         <SidebarLink text="Events" Icon={CalendarIcon} InactiveIcon={CalendarIconOutline} active ={activePage=="Events"}/>
         <SidebarLink text="Friends" Icon={UserGroupIcon} InactiveIcon={UserGroupIconOutline} active ={activePage=="Friends"}/>
-        <SidebarLink text="More" Icon={DotsCircleHorizontalIcon} InactiveIcon={DotsCircleHorizontalIconOutline} active ={activePage=="More"}/>
+        <SidebarLink text="More" Icon={EllipsisHorizontalIcon} InactiveIcon={EllipsisHorizontalIconOutline} active ={activePage=="More"}/>
       </div>
       <div
         className="text-[#d9d9d9] flex items-center justify-center mt-auto hoverAnimation xl:ml-16"
@@ -60,7 +59,7 @@ const Sidebar = ({activePage}) => {
           <h4 className="font-bold">Flyer</h4>
           <p className="text-[#6e767d]">@lewisu.edu</p>
         </div>
-        <DotsHorizontalIcon className="h-5 hidden xl:inline ml-10" />
+        <EllipsisHorizontalIconOutline className="h-5 hidden text-textWhiteSecondary xl:inline ml-10" />
       </div>
     </div>
   );
