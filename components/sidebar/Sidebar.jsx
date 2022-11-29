@@ -4,6 +4,7 @@ import Logo from "../../public/static/Logo.png";
 import UserImg from "../../public/static/user-icon.png";
 import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
+import Pages from "../Pages";
 
 import {
   HomeIcon,
@@ -30,7 +31,7 @@ const Sidebar = ({activePage}) => {
   const { data: session } = useSession();
 
   return (
-    <div className="hidden bg-[#161616] sm:flex flex-col items-center w-[96px] lg:ml-40 xl:items-start xl:w-[342px] xl:ml-64 p-2 fixed h-full">
+    <div className="hidden bg-[#0f0f0f] sm:flex flex-col items-center w-[96px] lg:ml-40 xl:items-start xl:w-[342px] xl:ml-64 p-2 fixed h-full">
       <div className="flex flex-row items-center justify-center hover:cursor-pointer sm:w-14 sm:h-14 p-0 xl:ml-28 xl:w-20 xl:h-20 xl:mt-6 mt-4">
         <Image src={Logo} alt="Lewis University" width={75} height={75} className="xl:ml-2" quality={100}/>
         <h1 className="hidden xl:inline text-white text-2xl text-center font-Belleza leading-tight">
@@ -38,13 +39,13 @@ const Sidebar = ({activePage}) => {
         </h1>
       </div>
       <div className="space-y-1.5 mt-4 mb-2.5 xl:ml-16">
-        <SidebarLink text="Home" Icon={HomeIcon} InactiveIcon={HomeIconOutline} active ={activePage=="Home"}/>
-        <SidebarLink text="Explore" Icon={HashtagIcon} InactiveIcon={HashtagIconOutline} active ={activePage=="Explore"}/>
-        <SidebarLink text="Notifications" Icon={BellIcon} InactiveIcon={BellIconOutline} active ={activePage=="Notifications"}/>
-        <SidebarLink text="Messages" Icon={EnvelopeIcon} InactiveIcon={EnvelopeIconOutline} active ={activePage=="Messages"}/>
-        <SidebarLink text="Events" Icon={CalendarIcon} InactiveIcon={CalendarIconOutline} active ={activePage=="Events"}/>
-        <SidebarLink text="Friends" Icon={UserGroupIcon} InactiveIcon={UserGroupIconOutline} active ={activePage=="Friends"}/>
-        <SidebarLink text="More" Icon={EllipsisHorizontalIcon} InactiveIcon={EllipsisHorizontalIconOutline} active ={activePage=="More"}/>
+        <SidebarLink text= {Pages.Home} Icon={HomeIcon} InactiveIcon={HomeIconOutline} active ={activePage==Pages.Home}/>
+        <SidebarLink text= {Pages.Explore} Icon={HashtagIcon} InactiveIcon={HashtagIconOutline} active ={activePage==Pages.Explore}/>
+        <SidebarLink text= {Pages.Notifications} Icon={BellIcon} InactiveIcon={BellIconOutline} active ={activePage==Pages.Notifications}/>
+        <SidebarLink text= {Pages.Messages} Icon={EnvelopeIcon} InactiveIcon={EnvelopeIconOutline} active ={activePage==Pages.Messages}/>
+        <SidebarLink text= {Pages.Events} Icon={CalendarIcon} InactiveIcon={CalendarIconOutline} active ={activePage==Pages.Events}/>
+        <SidebarLink text= {Pages.Friends} Icon={UserGroupIcon} InactiveIcon={UserGroupIconOutline} active ={activePage==Pages.Friends}/>
+        <SidebarLink text= {Pages.More} Icon={EllipsisHorizontalIcon} InactiveIcon={EllipsisHorizontalIconOutline} active ={activePage==Pages.More}/>
       </div>
       <div
         className="text-[#d9d9d9] flex items-center justify-center mt-auto hoverAnimation xl:ml-16"
