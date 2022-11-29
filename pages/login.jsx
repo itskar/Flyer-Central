@@ -1,35 +1,24 @@
 import React from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
-import LoginImageSection from "../components/login/LoginImageSection";
 import LoginInputForm from "../components/login/LoginInputForm";
+import { useRouter } from "next/router";
 
 const Login = () => {
+const router = useRouter();
 const { data: session } = useSession();
   if (session) {
     if (session.user.email.endsWith("@lewisu.edu")) {
-      return (
-        <div>
-          <p class="text-white">Welcome, {session.user.email}</p>
-          <button
-            className="bg-red-900 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-            onClick={() => signOut()}
-          >
-            Sign Out
-          </button>
-        </div>
-      );
+      router.push("/")
     } else {
       return (
-      <div class="flex cols-2">
-        <LoginImageSection/>
+        <div className="flex align-middle w-screen bg-login">
         <LoginInputForm/>
       </div>
       );
     }
   } else {
     return (
-      <div class="flex cols-2">
-        <LoginImageSection/>
+      <div className="flex align-middle w-screen bg-login">
         <LoginInputForm/>
       </div>
     );
