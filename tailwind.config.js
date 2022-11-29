@@ -13,7 +13,8 @@ module.exports = {
       transparent: "transparent",
       current: "currentColor",
       primaryPurple: "#8a6ce3",
-      primaryPurplehover: "#535d7c",
+      primaryPurplehover: "#5A4794",
+      whiteHover: "#DBDBDB",
       secondaryblue: "#0F9AFB",
       darkgray: "#2e2e2e",
       medgray: "#666666",
@@ -29,6 +30,9 @@ module.exports = {
       fontFamily: {
         Belleza: ["Belleza", ...defaultTheme.fontFamily.sans],
       },
+      backgroundImage: {
+        login : "url('/public/static/The-Encounter.jpg')"
+      }
     },
   },
   plugins: [],
