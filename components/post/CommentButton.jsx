@@ -8,14 +8,14 @@ const CommentButton = ({commentCount, onClick}) => {
     <div
       className={`${
         active ? "text-commentBlue" : "text-textWhiteSecondary"
-      } flex items-center justify-center xl:justify-start hoverAnimation hover:text-commentBlue`}
+      } flex items-center justify-center select-none xl:justify-start hoverAnimation hover:text-commentBlue`}
       onClick={() => {
         setActive(!active);
         !active && onClick();
       }}
     >
       <>
-        {active ? <Icon className="h-4" /> : <InactiveIcon className="h-4" />}
+        {active ? <Icon className="h-5" /> : <InactiveIcon className="h-5" />}
         <p className="ml-2 text-sm">{commentCount}</p>
       </>
     </div>

@@ -8,14 +8,14 @@ const ShareButton = ({onClick}) => {
 
   return (
     <div
-      className="flex items-center text-textWhiteSecondary justify-center xl:justify-start hoverAnimation hover:text-commentBlue"
+      className="flex items-center text-textWhiteSecondary select-none justify-center xl:justify-start hoverAnimation hover:text-commentBlue"
       onClick={() => {
         setActive(!active);
         !active && onClick();
       }}
     >
       <>
-        {active ? <Icon className="h-4" /> : <InactiveIcon className="h-4" />}
+        {active ? <Icon className="h-5" /> : <InactiveIcon className="h-5" />}
       </>
     </div>
   );

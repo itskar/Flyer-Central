@@ -9,14 +9,14 @@ const LikeButton = ({likeCount, onClick}) => {
     <div
       className={`${
         active ? "text-likeRed" : "text-textWhiteSecondary"
-      } flex items-center justify-center xl:justify-start hoverAnimation hover:text-likeRed`}
+      } flex items-center justify-center select-none xl:justify-start hoverAnimation hover:text-likeRed`}
       onClick={() => {
         setActive(!active);
         !active && onClick();
       }}
     >
       <>
-        {active ? <Icon className="h-4" /> : <InactiveIcon className="h-4" />}
+        {active ? <Icon className="h-5" /> : <InactiveIcon className="h-5" />}
         <p className="ml-2 text-sm">{likeCount}</p>
       </>
     </div>
