@@ -15,7 +15,7 @@ const Post = () => {
 
     return (
       <div className="mb-2 flex flex-col justify-evenly relative">
-        <div className="flex flex-row">
+        <div className="flex flex-row select-none">
           <div className="my-5 ml-5 mr-2 h-12 w-12 xl:h-14 xl:w-14 rounded-full overflow-hidden">
             <Image src={UserImg} alt="User" />
           </div>
