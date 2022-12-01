@@ -28,13 +28,7 @@ import SidebarLink from "./SidebarLink";
 
 const Sidebar = ({activePage}) => {
   const {data: session} = useSession();
-  const router = useRouter();
 
-  const handleSignOutClick = () => {
-    signOut();
-    router.push("/login")
-  }
-  
   return (
     <div className="hidden sm:flex flex-col select-none items-center w-[96px] lg:ml-40 xl:items-start xl:w-[340px] xl:ml-64 p-2 fixed h-full">
       <div className="flex flex-row items-center justify-center hover:cursor-pointer sm:w-14 sm:h-14 p-0 xl:ml-28 xl:w-20 xl:h-20 xl:mt-4">
@@ -54,7 +48,7 @@ const Sidebar = ({activePage}) => {
       </div>
       <div
         className="text-[#d9d9d9] flex items-center justify-center mt-auto hoverAnimation xl:ml-16"
-        onClick={handleSignOutClick}
+        onClick={() => signOut({callbackUrl: "/"})}
       >
         <Image src={session?.user?.image} width ={50} height={50} className="rounded-full ml-1"/>
         <div className="hidden xl:inline leading-5">

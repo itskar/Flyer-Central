@@ -1,25 +1,33 @@
 import Feed from "../components/feed/Feed";
 import Sidebar from "../components/sidebar/Sidebar";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
+import Login from "../components/login/Login";
 import RightSidePlaceholder from "../components/temp/RightSidePlaceholder";
 
 export default function Home() {
-  const router = useRouter();
   const pageName = "Home"
   const { data: session } = useSession();
 
-  useEffect(() => {
     if(!session){
-      router.push("/login")
+      return (
+        <div className="flex align-middle w-screen bg-login">
+          <Login/>
+        </div>
+      )
     }
-  }, [session])
+    else if(!session.user.email.endsWith("@lewisu.edu")){
+      console.log("Email doesn't end with @lewisu.edu")
+      return (
+        <div className="flex align-middle w-screen bg-login">
+          <Login/>
+        </div>
+      )
+    }
     return (
       <div>
-        <main className="min-h-screen flex max-w justify-start grid-cols-4">
+        <main className="min-h-screen flex max-w justify-start">
           <Sidebar activePage={pageName}/>
-          <Feed className="col-span-2"/>
+          <Feed/>
           <RightSidePlaceholder/>
         </main>
       </div>

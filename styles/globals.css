@@ -17,10 +17,10 @@
   }
 
   .icon {
-    @apply cursor-pointer w-9 h-9 hover:bg-primaryred hover:bg-opacity-10 flex items-center justify-center rounded-full transition ease-out;
+    @apply cursor-pointer w-9 h-9 hover:bg-primaryPurple hover:bg-opacity-10 flex items-center justify-center rounded-full transition ease-out;
   }
 
   .tag {
-    @apply text-primaryred font-normal hover:underline cursor-pointer;
+    @apply text-primaryPurple font-normal hover:underline cursor-pointer;
   }
 }
