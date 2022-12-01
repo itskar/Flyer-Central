@@ -25,7 +25,7 @@ const LoginInputForm = () => {
                 Sign in with Google
               </button>
             </div>
-            <div className="relative flex py-2 items-center">
+            <div className="relative flex py-2 items-center px-4">
               <div className="flex-grow border-t border-medgray"></div>
               <span className="flex-shrink mx-4 text-darkgray">or</span>
               <div className="flex-grow border-t border-medgray"></div>
