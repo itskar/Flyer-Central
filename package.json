@@ -10,12 +10,14 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.13",
+    "jquery": "^3.6.1",
     "missing": "^0.0.1",
     "next": "13.0.2",
     "next-auth": "^4.16.4",
     "next-images": "^1.8.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-textarea-autosize": "^8.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
