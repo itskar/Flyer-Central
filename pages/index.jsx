@@ -37,7 +37,7 @@ export default function Home() {
         <title>Flyer Central | {pageName}</title>
         <meta property="og:title" content="Flyer Central" key="title" />
       </Head>
-      <main className="min-h-screen flex max-w justify-start">
+      <main className="min-h-screen flex max-w-[1500px] mx-auto">
         <Sidebar activePage={pageName} />
         <Feed />
         <RightSidePlaceholder />

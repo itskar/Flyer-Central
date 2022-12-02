@@ -8,11 +8,8 @@ import CreatePostButton from './CreatePostButton'
 const CreatePost = () => {
     return (
         <div className="mb-2 flex flex-col justify-evenly relative">
-            <div>
-                <p className="pl-5 pt-3 font-bold text-xl">Home</p>
-            </div>
             <div className="flex flex-row select-none">
-                <div className="my-5 ml-5 mr-2 h-12 w-12 xl:h-14 xl:w-14 rounded-full overflow-hidden">
+                <div className="my-5 ml-5 mr-2 h-12 w-12 rounded-full overflow-hidden">
                     <Image src={UserImg} alt="User" />
                 </div>
                 <div className="mt-6 mb-1">

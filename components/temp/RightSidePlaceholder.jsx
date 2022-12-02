@@ -2,7 +2,7 @@ import React from 'react'
 
 const RightSidePlaceholder = () => {
   return (
-    <div className='hidden bg-[#363636] sm:flex flex-col fixed h-full xl:items-start xl:w-[340px] ml-[1245px]'>RightSidePlaceholder</div>
+    <div className='text-textWhitePrimary hidden lg:inline xl:w-[400px] py-1 space-y-5'>RightSidePlaceholder</div>
   )
 }
 

@@ -3,9 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    @apply scroll-smooth;
-  }
   body {
     @apply bg-[#15161D];
   }
