@@ -1,14 +1,13 @@
 import { useState } from "react";
-import {ArrowPathRoundedSquareIcon as InactiveIcon} from "@heroicons/react/24/outline";
-import {ArrowPathRoundedSquareIcon as Icon} from "@heroicons/react/24/solid";
+import { ArrowPathRoundedSquareIcon as InactiveIcon } from "@heroicons/react/24/outline";
+import { ArrowPathRoundedSquareIcon as Icon } from "@heroicons/react/24/solid";
 
-const RepostButton = ({repostCount, onClick}) => {
- 
-  const [active, setActive] = useState(false)
+const RepostButton = ({ repostCount, onClick }) => {
+  const [active, setActive] = useState(false);
   return (
     <div
       className={`${
-        active ? "text-repostGreen" : "text-textWhiteSecondary"
+        active ? "text-repostGreen" : "text-lightgray"
       } flex items-center justify-center xl:justify-start select-none hoverAnimation hover:text-repostGreen`}
       onClick={() => {
         setActive(!active);
@@ -16,11 +15,11 @@ const RepostButton = ({repostCount, onClick}) => {
       }}
     >
       <>
-        {active ? <Icon className="h-5" /> : <InactiveIcon className="h-5" />}
+        {active ? <Icon className="h-4" /> : <InactiveIcon className="h-4" />}
         <p className="ml-2 text-sm">{repostCount}</p>
       </>
     </div>
   );
-}
+};
 
 export default RepostButton;

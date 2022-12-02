@@ -7,7 +7,7 @@ const CreatePostButton = () => {
   return (
     <div>
         <button 
-        class="bg-primaryPurple hover:bg-opacity-80 
+        className="bg-primaryPurple hover:bg-opacity-80 
         text-white font-bold py-2 px-4 rounded-full
         w-20">
         Post

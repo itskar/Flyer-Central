@@ -4,7 +4,6 @@ import Logo from "../../public/static/Logo.png";
 import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import Pages from "../Pages";
-import { useRouter } from "next/router";
 import {
   HomeIcon,
   HashtagIcon,
@@ -50,7 +49,7 @@ const Sidebar = ({activePage}) => {
         className="text-[#d9d9d9] flex items-center justify-center mt-auto hoverAnimation xl:ml-16"
         onClick={() => signOut({callbackUrl: "/"})}
       >
-        <Image src={session?.user?.image} width ={50} height={50} className="rounded-full ml-1"/>
+        <Image src={session?.user?.image} alt= {session?.user?.name} width ={40} height={40} className="rounded-full ml-1"/>
         <div className="hidden xl:inline leading-5">
           <h4 className="font-bold ml-2">{session?.user?.name?.split(' ')[0]}</h4>
           <p className="text-[#6e767d] ml-1.5">@{session?.user?.email?.split('@')[0]}</p>

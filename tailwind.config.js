@@ -18,10 +18,11 @@ module.exports = {
       secondaryblue: "#0F9AFB",
       darkgray: "#3D3D3D",
       medgray: "#666666",
+      lightgray: "#7C7C7C",
       black: "#000000",
       white: "#ffffff",
-      textWhitePrimary: "#eeeeee",
-      textWhiteSecondary: "#9c9c9c",
+      textWhitePrimary: "#EAEAEA",
+      textWhiteSecondary: "#BFBFBF",
       likeRed: "#d2146c",
       commentBlue: "#8a6ce3",
       repostGreen: "#00ba7c"
