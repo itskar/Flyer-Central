@@ -32,7 +32,7 @@ const Post = () => {
           />
         </div>
       </div>
-      <div className="ml-20 top-[-34px] xl:top-[-34px] max-w-[500px] relative">
+      <div className="ml-[72px] top-[-34px] xl:top-[-34px] max-w-[500px] relative">
         <p className="absolute">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -40,7 +40,7 @@ const Post = () => {
           aliquip ex ea commodo consequat.
         </p>
       </div>
-      <div className="pt-12 flex justify-center gap-20">
+      <div className="pt-14 flex justify-center gap-20">
         <CommentButton
           commentCount={commentCount}
           onClick={() => setCommentCount(commentCount + 1)}
