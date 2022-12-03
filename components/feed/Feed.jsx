@@ -19,7 +19,7 @@ const Feed = () => {
         </div>  
       </div>
       <CreatePost setFeed={setFeed}/>
-      {feed.map((post) => <Post text={post.text}/>)}
+      {feed.map((post) => <Post text={post.text} userName = {post.userName} userTag ={post.userTag} userImg = {post.userImg} />)}
 
     </div>
   );

@@ -8,29 +8,29 @@ import ShareButton from "./ShareButton";
 import EditButton from "./EditButton";
 import CreatePost from "../createpost/CreatePost";
 
-const Post = (props) => {
+const Post = ({text, userName, userTag, userImg}) => {
   const [likeCount, setLikeCount] = useState(0);
   const [commentCount, setCommentCount] = useState(0);
   const [repostCount, setRepostCount] = useState(0);
-  const [timeStamp, setTimeStamp] = useState("1h")
+  const [timeStamp, setTimeStamp] = useState("1m")
   return (
     <div className="flex flex-row p-2">
       <div className="flex h-full select-none ">
-        <div className="my-2 mx-2 h-12 w-12 rounded-full overflow-hidden">
-          <Image src={UserImg} alt="User" />
+        <div className="my-2 mx-2 h-12 w-12 overflow-hidden">
+          <Image src={userImg} width ={50} height={50} className="rounded-full"alt="User" />
         </div>
       </div>
       <div className="flex flex-col pt-2 ml-2 ">
         <div className="flex flex-row ">
           <a href="" className="font-bold hover:underline">
-            Flyer
+            {userName}
           </a>
-          <p className="text-medgray ml-1 text-base">@FlyerCentral</p>
+          <p className="text-medgray ml-1 text-base">{userTag}</p>
           <p className="text-medgray ml-1 text-base">∙{timeStamp}</p>
         </div>
         <div className="">
           <p className="leading-tight text-base font-light mt-0.5 w-[500px]">
-            {props.text}
+            {text}
           </p>
         </div>
 
