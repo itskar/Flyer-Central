@@ -10,7 +10,7 @@ const CreatePost = ({ feed, setFeed }) => {
     
   const [message, setMessage] = useState("");
   return (
-    <div className="mb-2 flex flex-col justify-evenly relative">
+    <div className="mb-2 flex flex-col justify-evenly relative pr-5">
       <div className="flex flex-row select-none">
         <div className="my-5 ml-5 mr-2 h-12 w-12 overflow-hidden">
           <Image src={session?.user?.image} width ={50} height={50} className="rounded-full" alt="User" />

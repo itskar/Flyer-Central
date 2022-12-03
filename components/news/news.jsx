@@ -1,17 +1,24 @@
-import { Result } from "postcss";
+import React from 'react'
+import NewsButtons from './NewsButtons'
 
-function News({ result }) {
-    return (
-    <div className = "hover:bg-white hover:bg-opacity-[0.03] px-4 py-3 cursor-pointer transition duration-200 ease-out flex items-center justify-between">
-        <div className = "space-y-0.5">
-            <p className = "text-[$6e767d] text-xs font-medium">{result.heading}</p>
-            <h6 className = "font-bold max-w-p250px] text-sm">
-                {result.descrption}
-            </h6>
-            <p>Recent News {result.tags.map}</p>
+const News = () => {
+  return (
+    <div className='text-textWhitePrimary hidden lg:inline xl:w-[360px] py-10 space-y-5 ml-10'>
+        <div  className='bg-darkgray rounded-xl h-[550px] xl:w-[23vw] lg:w-[30vw] '>
+            <div className='flex flex-col'>
+                <div className='m-5'>
+                    <p className='font-bold text-2xl'>What's happening</p>
+                </div>
+                <NewsButtons />
+                <NewsButtons />
+                <NewsButtons />
+                <NewsButtons />
+            </div>
+            
+        </div>
+        
     </div>
-    </div>
-    );
+  )
 }
 
-export default News;
+export default News

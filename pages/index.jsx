@@ -2,8 +2,8 @@ import Feed from "../components/feed/Feed";
 import Sidebar from "../components/sidebar/Sidebar";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Login from "../components/login/Login";
-import RightSidePlaceholder from "../components/temp/RightSidePlaceholder";
 import Head from "next/head";
+import News from "../components/news/News";
 
 export default function Home() {
   const pageName = "Home";
@@ -40,7 +40,7 @@ export default function Home() {
       <main className="min-h-screen flex max-w-[1500px] mx-auto">
         <Sidebar activePage={pageName} />
         <Feed />
-        <RightSidePlaceholder />
+        <News />
       </main>
     </div>
   );

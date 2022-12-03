@@ -29,7 +29,7 @@ const Sidebar = ({activePage}) => {
   const {data: session} = useSession();
 
   return (
-    <div className="hidden sm:flex flex-col items-center xl:items-center xl:w-[360px] ml-8 p-2 fixed h-full">
+    <div className="hidden sm:flex flex-col items-center xl:items-center xl:w-[360px] ml-8 lg:ml-[1px] sm:ml-[1px] p-2 fixed h-full">
       <div className="flex flex-row items-center justify-center hover:cursor-pointer sm:w-14 sm:h-14 p-0 xl:ml-14 xl:w-20 xl:h-20 xl:mt-4">
         <Image src={Logo} alt="Lewis University" width={75} height={75} className="xl:ml-1" quality={100}/>
         <h1 className="hidden xl:inline text-white text-2xl text-center font-Belleza leading-tight">
