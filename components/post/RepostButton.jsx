@@ -8,7 +8,7 @@ const RepostButton = ({ repostCount, onClick }) => {
     <div
       className={`${
         active ? "text-repostGreen" : "text-lightgray"
-      } flex items-center justify-center xl:justify-start select-none hoverAnimation hover:text-repostGreen`}
+      } flex items-center justify-center xl:justify-start select-none iconHoverAnimation hover:text-repostGreen`}
       onClick={() => {
         setActive(!active);
         !active && onClick();

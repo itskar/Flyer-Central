@@ -7,7 +7,7 @@ const ShareButton = ({ onClick }) => {
 
   return (
     <div
-      className="flex items-center text-lightgray select-none justify-center xl:justify-start hoverAnimation hover:text-commentBlue"
+      className="flex items-center text-lightgray select-none justify-center xl:justify-start iconHoverAnimation hover:text-commentBlue"
       onClick={() => {
         setActive(!active);
         !active && onClick();

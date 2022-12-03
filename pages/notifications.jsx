@@ -12,7 +12,7 @@ export default function Notifications() {
         <meta property="og:title" content="Flyer Central" key="title" />
       </Head>
       <main className="min-h-screen flex max-w-[1500px] mx-auto">
-        {<Sidebar activePage={pageName} />}
+        <Sidebar activePage={pageName} />
         <ComingSoon pageName={pageName} />
         <RightSidePlaceholder />
       </main>

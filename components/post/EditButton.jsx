@@ -7,7 +7,7 @@ const EditButton = ({ onClick }) => {
 
   return (
     <div
-      className="flex items-center text-lightgray justify-center xl:justify-start hoverAnimation hover:text-textWhitePrimary"
+      className="flex items-center text-lightgray justify-center xl:justify-start iconHoverAnimation hover:text-textWhitePrimary"
       onClick={() => {
         setActive(!active);
         !active && onClick();

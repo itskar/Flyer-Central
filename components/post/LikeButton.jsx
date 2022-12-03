@@ -8,7 +8,7 @@ const LikeButton = ({ likeCount, onClick }) => {
     <div
       className={`${
         active ? "text-likeRed" : "text-lightgray"
-      } flex items-center justify-center select-none xl:justify-start hoverAnimation hover:text-likeRed`}
+      } flex items-center justify-center select-none xl:justify-start iconHoverAnimation hover:text-likeRed`}
       onClick={() => {
         setActive(!active);
         !active && onClick();

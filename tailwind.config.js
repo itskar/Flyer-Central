@@ -21,7 +21,7 @@ module.exports = {
       lightgray: "#7C7C7C",
       black: "#000000",
       white: "#ffffff",
-      textWhitePrimary: "#EAEAEA",
+      textWhitePrimary: "#F6F6F6",
       textWhiteSecondary: "#BFBFBF",
       likeRed: "#d2146c",
       commentBlue: "#8a6ce3",

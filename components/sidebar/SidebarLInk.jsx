@@ -14,7 +14,7 @@ function SidebarLink({ Icon, InactiveIcon, text, active }) {
     <div
       className={`${
         active ? "text-textWhitePrimary" : "text-textWhiteSecondary"
-      } flex items-center justify-center xl:justify-start text-xl space-x-3 hoverAnimation ${active && "font-semibold"}`}
+      } flex items-center justify-center xl:justify-start text-xl space-x-3 hoverAnimation select-none ${active && "font-semibold"}`}
       onClick={handleClick}
     >
       <>
@@ -24,7 +24,7 @@ function SidebarLink({ Icon, InactiveIcon, text, active }) {
           <InactiveIcon className="h-7 w-9" />
         )}
       </>
-      <span className="hidden xl:inline">{text}</span>
+      <span className="hidden xl:inline select-none">{text}</span>
     </div>
   );
 }
