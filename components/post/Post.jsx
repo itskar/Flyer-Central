@@ -6,8 +6,9 @@ import RepostButton from "./RepostButton";
 import LikeButton from "./LikeButton";
 import ShareButton from "./ShareButton";
 import EditButton from "./EditButton";
+import CreatePost from "../createpost/CreatePost";
 
-const Post = () => {
+const Post = (props) => {
   const [likeCount, setLikeCount] = useState(0);
   const [commentCount, setCommentCount] = useState(0);
   const [repostCount, setRepostCount] = useState(0);
@@ -28,11 +29,8 @@ const Post = () => {
           <p className="text-medgray ml-1 text-base">∙{timeStamp}</p>
         </div>
         <div className="">
-          <p className="leading-tight text-base font-light mt-0.5">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+          <p className="leading-tight text-base font-light mt-0.5 w-[500px]">
+            {props.text}
           </p>
         </div>
 
