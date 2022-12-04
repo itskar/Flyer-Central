@@ -10,9 +10,9 @@ const CreatePost = ({ feed, setFeed }) => {
     
   const [message, setMessage] = useState("");
   return (
-    <div className="mb-2 flex flex-col justify-evenly relative pr-5">
+    <div className="mb-2 flex flex-col justify-evenly relative pr-5 border-b-[1px] border-darkgray">
       <div className="flex flex-row select-none">
-        <div className="my-5 ml-5 mr-2 h-12 w-12 overflow-hidden">
+        <div className="my-5 ml-5 mr-2 h-20 w-20 overflow-hidden">
           <Image src={session?.user?.image} width ={50} height={50} className="rounded-full" alt="User" />
         </div>
         <div className="mt-6 mb-1">
@@ -25,9 +25,9 @@ const CreatePost = ({ feed, setFeed }) => {
           />
           <div className="pl-[450px] pt-5">
             <button
-              class="bg-primaryPurple hover:bg-opacity-80 
-                            text-white font-bold py-2 px-4 rounded-full
-                            w-20 disabled:bg-darkgray"
+              class="bg-primaryPurple hover:bg-opacity-80 transition ease-in-out duration-200
+                            text-white font-bold py-2 px-4 rounded-full mb-4
+                            w-20"
               onClick={() => setFeed((feed) => [{ text: message, userName: userName, userTag: userTag, userImg: session?.user?.image}, ...feed ])}
             >
               Post

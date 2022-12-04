@@ -9,7 +9,7 @@ const Feed = () => {
   return (
     <div
       className="text-textWhitePrimary flex-grow border-l-[1px] border-darkgray
-        border-r max-w-[620px] sm:ml-[73px] xl:ml-[400px] divide-y-[1px] divide-darkgray"
+        border-r max-w-[620px] sm:ml-[73px] xl:ml-[400px]"
     >
       
       <div className="flex items-center sm:justify-between py-2 px-4 sticky top-0 z-50 backdrop-blur-lg">

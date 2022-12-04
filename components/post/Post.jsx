@@ -14,7 +14,7 @@ const Post = ({text, userName, userTag, userImg}) => {
   const [repostCount, setRepostCount] = useState(0);
   const [timeStamp, setTimeStamp] = useState("1m")
   return (
-    <div className="flex flex-row p-2">
+    <div className="flex flex-row p-2 border-b-[1px] border-darkgray hover:backdrop-brightness-125 transition ease-in-out duration-200">
       <div className="flex h-full select-none ">
         <div className="my-2 mx-2 h-12 w-12 overflow-hidden">
           <Image src={userImg} width ={50} height={50} className="rounded-full"alt="User" />
