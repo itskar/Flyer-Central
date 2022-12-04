@@ -46,7 +46,7 @@ const Sidebar = ({activePage}) => {
         <SidebarLink text= {Pages.More} Icon={EllipsisHorizontalIcon} InactiveIcon={EllipsisHorizontalIconOutline} active ={activePage==Pages.More}/>
       </div>
       <div
-        className="text-[#d9d9d9] flex items-center justify-center mt-auto hoverAnimation xl:ml-auto xl:-mr-5"
+        className="text-[#d9d9d9] flex items-center justify-center mt-auto hoverAnimation xl:ml-auto xl:-mr-5 group"
         onClick={() => signOut({callbackUrl: "/"})}
       >
         <Image src={session?.user?.image} alt= {session?.user?.name} width ={50} height={50} className="rounded-full"/>
@@ -54,7 +54,7 @@ const Sidebar = ({activePage}) => {
           <h4 className="font-bold ml-2">{session?.user?.name?.split(' ')[0]}</h4>
           <p className="text-[#6e767d] ml-1.5 truncate w-5/6">@{session?.user?.email?.split('@')[0]}</p>
         </div>
-        <EllipsisHorizontalIconOutline className="h-5 hidden text-textWhitePrimary xl:inline" />
+        <EllipsisHorizontalIconOutline className="h-5 hidden text-lightgray group-hover:text-textWhiteSecondary ease-in-out duration-200 xl:inline" />
       </div>
     </div>
   );
