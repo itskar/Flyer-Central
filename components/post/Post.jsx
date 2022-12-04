@@ -22,7 +22,7 @@ const Post = ({text, userName, userTag, userImg}) => {
       </div>
       <div className="flex flex-col pt-2 ml-2 ">
         <div className="flex flex-row ">
-          <a href="" className="font-bold hover:underline">
+          <a href="" className="font-semibold hover:underline">
             {userName}
           </a>
           <p className="text-medgray ml-1 text-base">{userTag}</p>
@@ -37,15 +37,15 @@ const Post = ({text, userName, userTag, userImg}) => {
         <div className="flex justify-between pt-1">
           <CommentButton
             commentCount={commentCount}
-            onClick={() => setCommentCount(commentCount + 1)}
+            onClick={() => setCommentCount(commentCount => commentCount + 1)}
           />
           <RepostButton
             repostCount={repostCount}
-            onClick={() => setRepostCount(repostCount + 1)}
+            onClick={() => setRepostCount(repostCount => repostCount + 1)}
           />
           <LikeButton
             likeCount={likeCount}
-            onClick={() => setLikeCount(likeCount + 1)}
+            onClick={() => setLikeCount(likeCount => likeCount + 1)}
           />
           <ShareButton onClick={() => console.log("Link copied")} />
         </div>
