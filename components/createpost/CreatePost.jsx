@@ -18,7 +18,7 @@ const CreatePost = ({ feed, setFeed }) => {
         <div className="mt-6 mb-1">
           <TextareaAutosize
             placeholder="What's happening?"
-            className="bg-[#15161D] py-1 px-1 resize-none focus:outline-none
+            className="bg-transparent py-1 px-1 resize-none focus:outline-none
                     w-[500px] overflow-hidden placeholder:text-lg"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
