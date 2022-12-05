@@ -11,12 +11,12 @@ import {
   EllipsisHorizontalIcon,
   HeartIcon,
   ChatBubbleLeftIcon,
-  ArrowPathRoundedSquareIcon ,
+  ArrowPathRoundedSquareIcon,
   TrashIcon,
 } from "@heroicons/react/24/outline";
 import {
   HeartIcon as HeartIconFilled,
-  ArrowPathRoundedSquareIcon as ArrowPathRoundedSquareIconFilled
+  ArrowPathRoundedSquareIcon as ArrowPathRoundedSquareIconFilled,
 } from "@heroicons/react/24/solid";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
@@ -85,7 +85,7 @@ function Post({ id, post, postPage }) {
           className="h-11 w-11 rounded-full mr-4"
         />
       )}
-      <div className="flex flex-col space-y-2 w-full">
+      <div className="flex flex-col space-y-2 select-none w-full">
         <div className={`flex ${!postPage && "justify-between"}`}>
           {postPage && (
             <img
@@ -97,20 +97,20 @@ function Post({ id, post, postPage }) {
           <div className="text-lightgray">
             <div className="inline-block group">
               <h4
-                className={`font-semibold text-[15px] sm:text-base text-textWhitePrimary group-hover:underline ${
+                className={`font-semibold text-[15px] sm:text-base text-textWhitePrimary select-none group-hover:underline ${
                   !postPage && "inline-block"
                 }`}
               >
                 {post?.username}
               </h4>
               <span
-                className={`text-sm sm:text-[15px] ${!postPage && "ml-1.5"}`}
+                className={`text-sm sm:text-[15px] select-none ${!postPage && "ml-1.5"}`}
               >
                 @{post?.tag}
               </span>
-            </div>
-            {" "}·{" "}
-            <span className="hover:underline text-sm sm:text-[15px]">
+            </div>{" "}
+            ·{" "}
+            <span className="hover:underline text-sm select-none sm:text-[15px]">
               <Moment fromNow>{post?.timestamp?.toDate()}</Moment>
             </span>
             {!postPage && (
@@ -120,7 +120,7 @@ function Post({ id, post, postPage }) {
             )}
           </div>
           <div className="icon group flex-shrink-0 ml-auto">
-            <EllipsisHorizontalIcon className="h-5 text-lightgray group-hover:text-primaryPurple" />
+            <EllipsisHorizontalIcon className="h-[18px] text-lightgray group-hover:text-primaryPurple" />
           </div>
         </div>
         {postPage && (
@@ -129,23 +129,23 @@ function Post({ id, post, postPage }) {
         <img
           src={post?.image}
           alt=""
-          className="rounded-2xl max-h-[700px] object-cover mr-2"
+          className="rounded-2xl select-none max-h-[700px] object-cover mr-2"
         />
         <div
-          className={`text-lightgray flex justify-between w-10/12 ${
+          className={`text-lightgray flex justify-between w-11/12 ml-2 ${
             postPage && "mx-auto"
           }`}
         >
           <div
-            className="flex items-center space-x-1 group"
+            className="flex items-center space-x-1 hgroup"
             onClick={(e) => {
               e.stopPropagation();
               setPostId(id);
               setIsOpen(true);
             }}
           >
-            <div className="icon group-hover:bg-primaryPurple group-hover:bg-opacity-10">
-              <ChatBubbleLeftIcon className="h-5 group-hover:text-primaryPurple" />
+            <div className="icon group-hover:bg-primaryPurple">
+              <ChatBubbleLeftIcon className="h-[18px] group-hover:text-primaryPurple" />
             </div>
             {comments.length > 0 && (
               <span className="group-hover:text-primaryPurple text-sm">
@@ -154,23 +154,9 @@ function Post({ id, post, postPage }) {
             )}
           </div>
 
-          {session.user.uid === post?.id ? (
-            <div
-              className="flex items-center space-x-1 group"
-              onClick={(e) => {
-                e.stopPropagation();
-                deleteDoc(doc(db, "posts", id));
-                router.push("/");
-              }}
-            >
-              <div className="icon group-hover:bg-red-600/10">
-                <TrashIcon className="h-5 group-hover:text-red-600" />
-              </div>
-            </div>
-          ) : (
-            <div className="flex items-center space-x-1 group">
-            </div>
-          )}
+          <div className="icon group">
+            <ArrowPathRoundedSquareIcon className="h-[18px] group-hover:text-[#1d9bf0]" />
+          </div>
 
           <div
             className="flex items-center space-x-1 group"
@@ -181,9 +167,9 @@ function Post({ id, post, postPage }) {
           >
             <div className="icon group-hover:bg-likeRed/10">
               {liked ? (
-                <HeartIconFilled className="h-5 text-likeRed" />
+                <HeartIconFilled className="h-[18px] text-likeRed" />
               ) : (
-                <HeartIcon className="h-5 group-hover:text-likeRed" />
+                <HeartIcon className="h-[18px] group-hover:text-likeRed" />
               )}
             </div>
             {likes.length > 0 && (
@@ -197,9 +183,20 @@ function Post({ id, post, postPage }) {
             )}
           </div>
 
-          <div className="icon group">
-            <ArrowPathRoundedSquareIcon  className="h-5 group-hover:text-[#1d9bf0]" />
-          </div>
+          {session.user.uid === post?.id && (
+            <div
+              className="flex items-center space-x-1 group"
+              onClick={(e) => {
+                e.stopPropagation();
+                deleteDoc(doc(db, "posts", id));
+                router.push("/");
+              }}
+            >
+              <div className="icon group-hover:bg-red-600/10">
+                <TrashIcon className="h-[18px] group-hover:text-likeRed" />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

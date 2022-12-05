@@ -108,7 +108,7 @@ const CreatePost = () => {
                 className="absolute w-8 h-8 bg-[#15181c] hover:bg-[#272c26] bg-opacity-75 rounded-full flex items-center justify-center top-1 left-1 cursor-pointer"
                 onClick={() => setSelectedFile(null)}
               >
-                <XMarkIcon className="text-white h-5" />
+                <XMarkIcon className="text-textWhitePrimary h-5" />
               </div>
               <img
                 src={selectedFile}
@@ -158,7 +158,7 @@ const CreatePost = () => {
               )}
             </div>
             <button
-              className="bg-primaryPurple text-white rounded-full px-4 py-1.5 font-bold shadow-md hover:bg-primaryPurplehover disabled:hover:bg-primaryPurple disabled:opacity-50 disabled:cursor-default"
+              className="bg-primaryPurple select-none text-textWhitePrimary rounded-full px-4 py-1.5 font-bold shadow-md hover:bg-primaryPurplehover disabled:hover:bg-primaryPurple disabled:opacity-50 disabled:cursor-default"
               disabled={!input.trim() && !selectedFile}
               onClick={sendPost}
             >
