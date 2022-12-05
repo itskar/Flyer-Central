@@ -34,12 +34,12 @@ const CreatePost = () => {
     setLoading(true);
 
     const docRef = await addDoc(collection(db, "posts"), {
-      // id: session.user.uid,
+      id: session.user.uid,
       username: session.user.name,
       userImg: session.user.image,
-      // tag: session.user.tag,
+      tag: session.user.tag,
       text: input,
-      // timestamp: serverTimestamp(),
+      timestamp: serverTimestamp(),
     });
 
     const imageRef = ref(storage, `posts/${docRef.id}/image`);
@@ -147,7 +147,7 @@ const CreatePost = () => {
               </div>
 
               {showEmojis && (
-                <div className = " absolute mt-[480px] ml-[60px] w-max[320px] z-40">
+                <div className = " absolute mt-[480px] ml-[-60px] w-max[320px] z-40">
                   <Picker
                     onEmojiSelect={addEmoji}
                     data={data}

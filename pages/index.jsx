@@ -1,6 +1,6 @@
 import Feed from "../components/feed/Feed";
 import Sidebar from "../components/sidebar/Sidebar";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { getProviders, getSession, useSession } from "next-auth/react";
 import Login from "../components/login/Login";
 import Head from "next/head";
 import News from "../components/news/News";
@@ -44,4 +44,24 @@ export default function Home() {
       </main>
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  // const trendingResults = await fetch("https://jsonkeeper.com/b/NKEV").then(
+  //   (res) => res.json()
+  // );
+  // const followResults = await fetch("https://jsonkeeper.com/b/WWMJ").then(
+  //   (res) => res.json()
+  // );
+  const providers = await getProviders();
+  const session = await getSession(context);
+
+  return {
+    props: {
+      // trendingResults,
+      // followResults,
+      providers,
+      session,
+    },
+  };
 }
