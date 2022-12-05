@@ -19,7 +19,7 @@ const Feed = () => {
         </div>  
       </div>
 
-      {/* {feed.map((post) => <Post text={post.text} userName = {post.userName} userTag ={post.userTag} userImg = {post.userImg} />)} */}
+      {feed.map((post) => <Post text={post.text} userName = {post.userName} userTag ={post.userTag} userImg = {post.userImg} />)}
       <CreatePost/>
     </div>
   );

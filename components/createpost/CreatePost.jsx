@@ -18,6 +18,7 @@ import { getDownloadURL, ref, uploadString } from "@firebase/storage";
 import { signOut, useSession } from "next-auth/react";
 import { Picker } from "emoji-mart";
 import data from "@emoji-mart/data";
+import Image from "next/image";
 // new Picker({ data });
 
 const CreatePost = () => {
@@ -27,28 +28,18 @@ const CreatePost = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const filePickerRef = useRef(null);
   const [showEmojis, setShowEmojis] = useState(false);
-
-  new Picker({
-    data: async () => {
-      const response = await fetch(
-        "https://cdn.jsdelivr.net/npm/@emoji-mart/data"
-      );
-
-      return response.json();
-    },
-  });
   
   const sendPost = async () => {
     if (loading) return;
     setLoading(true);
 
     const docRef = await addDoc(collection(db, "posts"), {
-      id: session.user.uid,
+      // id: session.user.uid,
       username: session.user.name,
       userImg: session.user.image,
-      tag: session.user.tag,
+      // tag: session.user.tag,
       text: input,
-      timestamp: serverTimestamp(),
+      // timestamp: serverTimestamp(),
     });
 
     const imageRef = ref(storage, `posts/${docRef.id}/image`);
@@ -93,9 +84,11 @@ const CreatePost = () => {
         loading && "opacity-60"
       }`}
     >
-      <img
+      <Image
         src={session.user.image}
         alt=""
+        width={50}
+        height={50}
         className="h-11 w-11 rounded-full cursor-pointer"
         onClick={signOut}
       />
