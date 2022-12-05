@@ -78,10 +78,6 @@ const CreatePost = () => {
     setInput(input + emoji);
   };
 
-  const closeEmoji = () => {
-    setShowEmojis(false);
-  };
-
   return (
     <div
       className={`border-b border-darkgray p-3 flex space-x-3 overflow-y-scroll scrollbar-hide ${
@@ -154,7 +150,6 @@ const CreatePost = () => {
                 <div className = " absolute mt-[480px] ml-[60px] w-max[320px] z-40">
                   <Picker
                     onEmojiSelect={addEmoji}
-                    onClickOutside={() => closeEmoji}
                     data={data}
                     previewPosition = "none"
                     theme="dark"
@@ -164,7 +159,7 @@ const CreatePost = () => {
             </div>
             <button
               className="bg-primaryPurple text-white rounded-full px-4 py-1.5 font-bold shadow-md hover:bg-primaryPurplehover disabled:hover:bg-primaryPurple disabled:opacity-50 disabled:cursor-default"
-              disabled={!input && !selectedFile}
+              disabled={!input.trim() && !selectedFile}
               onClick={sendPost}
             >
               Post
