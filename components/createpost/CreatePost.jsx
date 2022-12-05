@@ -16,12 +16,10 @@ import {
 } from "@firebase/firestore";
 import { getDownloadURL, ref, uploadString } from "@firebase/storage";
 import { signOut, useSession } from "next-auth/react";
-import { Picker } from "emoji-mart";
+import Picker from "@emoji-mart/react";
 import data from "@emoji-mart/data";
 import Image from "next/image";
-import TextareaAutosize from 'react-textarea-autosize';
-
-// new Picker({ data });
+import TextareaAutosize from "react-textarea-autosize";
 
 const CreatePost = () => {
   const { data: session } = useSession();
@@ -30,7 +28,7 @@ const CreatePost = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const filePickerRef = useRef(null);
   const [showEmojis, setShowEmojis] = useState(false);
-  
+
   const sendPost = async () => {
     if (loading) return;
     setLoading(true);
@@ -78,6 +76,10 @@ const CreatePost = () => {
     sym.forEach((el) => codesArray.push("0x" + el));
     let emoji = String.fromCodePoint(...codesArray);
     setInput(input + emoji);
+  };
+
+  const closeEmoji = () => {
+    setShowEmojis(false);
   };
 
   return (
@@ -149,18 +151,15 @@ const CreatePost = () => {
               </div>
 
               {showEmojis && (
-                <Picker
-                  onSelect={addEmoji}
-                  data={data}
-                  // style={{
-                  //   position: "absolute",
-                  //   marginTop: "465px",
-                  //   marginLeft: "-40px",
-                  //   maxWidth: "320px",
-                  //   borderRadius: "20px",
-                  // }}
-                  // theme="dark"
-                />
+                <div className = " absolute mt-[480px] ml-[60px] w-max[320px] z-40">
+                  <Picker
+                    onEmojiSelect={addEmoji}
+                    onClickOutside={() => closeEmoji}
+                    data={data}
+                    previewPosition = "none"
+                    theme="dark"
+                  />
+                </div>
               )}
             </div>
             <button

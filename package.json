@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@emoji-mart/data": "^1.0.8",
+    "@emoji-mart/react": "^1.0.1",
     "@heroicons/react": "^2.0.13",
-    "emoji-mart": "^5.3.3",
     "firebase": "^9.14.0",
     "jquery": "^3.6.1",
     "missing": "^0.0.1",
