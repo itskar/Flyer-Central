@@ -19,6 +19,8 @@ import { signOut, useSession } from "next-auth/react";
 import { Picker } from "emoji-mart";
 import data from "@emoji-mart/data";
 import Image from "next/image";
+import TextareaAutosize from 'react-textarea-autosize';
+
 // new Picker({ data });
 
 const CreatePost = () => {
@@ -94,12 +96,12 @@ const CreatePost = () => {
       />
       <div className=" w-full">
         <div className={`${selectedFile && "pb-7"} ${input && "space-y-2.5"}`}>
-          <textarea
+          <TextareaAutosize
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="What's happening?"
             rows="2"
-            className="bg-transparent outline-none text-textWhitePrimary text-md placeholder-lightgray w-full min-h-[50px]"
+            className="bg-transparent outline-none text-textWhitePrimary text-md placeholder-lightgray w-full min-h-[50px] resize-none"
           />
 
           {selectedFile && (
