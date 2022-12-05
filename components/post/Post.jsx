@@ -1,12 +1,10 @@
 import Image from "next/image";
-import UserImg from "../../public/static/user-icon.png";
 import React, { useState } from "react";
 import CommentButton from "./CommentButton";
 import RepostButton from "./RepostButton";
 import LikeButton from "./LikeButton";
 import ShareButton from "./ShareButton";
 import EditButton from "./EditButton";
-import CreatePost from "../createpost/CreatePost";
 
 const Post = ({text, userName, userTag, userImg}) => {
   const [likeCount, setLikeCount] = useState(0);

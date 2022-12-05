@@ -1,5 +1,5 @@
 import CreatePost from "../createpost/CreatePost";
-import Post from "../post/Post";
+// import Post from "../post/Post";
 import { SparklesIcon } from "@heroicons/react/24/outline";
 import {useState} from "react";
 
@@ -9,7 +9,7 @@ const Feed = () => {
   return (
     <div
       className="text-textWhitePrimary flex-grow border-l-[1px] border-darkgray
-        border-r max-w-[620px] sm:ml-[73px] xl:ml-[400px]"
+        border-r max-w-[620px] sm:ml-[73px] xl:ml-[380px]"
     >
       
       <div className="flex items-center sm:justify-between py-2 px-4 sticky top-0 z-50 backdrop-blur-lg">
@@ -18,9 +18,9 @@ const Feed = () => {
           <SparklesIcon className="h-5 text-white" />
         </div>  
       </div>
-      <CreatePost setFeed={setFeed}/>
-      {feed.map((post) => <Post text={post.text} userName = {post.userName} userTag ={post.userTag} userImg = {post.userImg} />)}
 
+      {/* {feed.map((post) => <Post text={post.text} userName = {post.userName} userTag ={post.userTag} userImg = {post.userImg} />)} */}
+      <CreatePost/>
     </div>
   );
 };

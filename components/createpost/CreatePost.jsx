@@ -1,39 +1,182 @@
-import { useSession } from "next-auth/react";
-import Image from "next/image";
-import { useState } from "react";
-import TextareaAutosize from "react-textarea-autosize";
+import {
+  CalendarIcon,
+  ChartBarIcon,
+  FaceSmileIcon,
+  PhotoIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
+import { useRef, useState } from "react";
+import { db, storage } from "../../firebase";
+import {
+  addDoc,
+  collection,
+  doc,
+  serverTimestamp,
+  updateDoc,
+} from "@firebase/firestore";
+import { getDownloadURL, ref, uploadString } from "@firebase/storage";
+import { signOut, useSession } from "next-auth/react";
+import { Picker } from "emoji-mart";
+import data from "@emoji-mart/data";
+// new Picker({ data });
 
-const CreatePost = ({ feed, setFeed }) => {
+const CreatePost = () => {
   const { data: session } = useSession();
-  const userTag = `@${session?.user?.email.split('@')[0]}`;
-  const userName = session?.user?.name?.split(' ')[0]; 
-    
-  const [message, setMessage] = useState("");
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const filePickerRef = useRef(null);
+  const [showEmojis, setShowEmojis] = useState(false);
+
+  new Picker({
+    data: async () => {
+      const response = await fetch(
+        "https://cdn.jsdelivr.net/npm/@emoji-mart/data"
+      );
+
+      return response.json();
+    },
+  });
+  
+  const sendPost = async () => {
+    if (loading) return;
+    setLoading(true);
+
+    const docRef = await addDoc(collection(db, "posts"), {
+      id: session.user.uid,
+      username: session.user.name,
+      userImg: session.user.image,
+      tag: session.user.tag,
+      text: input,
+      timestamp: serverTimestamp(),
+    });
+
+    const imageRef = ref(storage, `posts/${docRef.id}/image`);
+
+    if (selectedFile) {
+      await uploadString(imageRef, selectedFile, "data_url").then(async () => {
+        const downloadURL = await getDownloadURL(imageRef);
+        await updateDoc(doc(db, "posts", docRef.id), {
+          image: downloadURL,
+        });
+      });
+    }
+
+    setLoading(false);
+    setInput("");
+    setSelectedFile(null);
+    setShowEmojis(false);
+  };
+
+  const addImageToPost = (e) => {
+    const reader = new FileReader();
+    if (e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0]);
+    }
+
+    reader.onload = (readerEvent) => {
+      setSelectedFile(readerEvent.target.result);
+    };
+  };
+
+  const addEmoji = (e) => {
+    let sym = e.unified.split("-");
+    let codesArray = [];
+    sym.forEach((el) => codesArray.push("0x" + el));
+    let emoji = String.fromCodePoint(...codesArray);
+    setInput(input + emoji);
+  };
+
   return (
-    <div className="mb-2 flex flex-col justify-evenly relative pr-5 border-b-[1px] border-darkgray">
-      <div className="flex flex-row select-none">
-        <div className="my-5 ml-5 mr-2 h-20 w-20 overflow-hidden">
-          <Image src={session?.user?.image} width ={50} height={50} className="rounded-full" alt="User" />
-        </div>
-        <div className="mt-6 mb-1">
-          <TextareaAutosize
+    <div
+      className={`border-b border-darkgray p-3 flex space-x-3 overflow-y-scroll scrollbar-hide ${
+        loading && "opacity-60"
+      }`}
+    >
+      <img
+        src={session.user.image}
+        alt=""
+        className="h-11 w-11 rounded-full cursor-pointer"
+        onClick={signOut}
+      />
+      <div className=" w-full">
+        <div className={`${selectedFile && "pb-7"} ${input && "space-y-2.5"}`}>
+          <textarea
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
             placeholder="What's happening?"
-            className="bg-transparent py-1 px-1 resize-none focus:outline-none
-                    w-[500px] overflow-hidden placeholder:text-lg"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            rows="2"
+            className="bg-transparent outline-none text-textWhitePrimary text-md placeholder-lightgray w-full min-h-[50px]"
           />
-          <div className="pl-[450px] pt-5">
+
+          {selectedFile && (
+            <div className="relative">
+              <div
+                className="absolute w-8 h-8 bg-[#15181c] hover:bg-[#272c26] bg-opacity-75 rounded-full flex items-center justify-center top-1 left-1 cursor-pointer"
+                onClick={() => setSelectedFile(null)}
+              >
+                <XMarkIcon className="text-white h-5" />
+              </div>
+              <img
+                src={selectedFile}
+                alt=""
+                className="rounded-2xl max-h-80 object-contain"
+              />
+            </div>
+          )}
+        </div>
+        {!loading && (
+          <div className="flex items-center justify-between pt-2.5">
+            <div className="flex items-center">
+              <div
+                className="icon"
+                onClick={() => filePickerRef.current.click()}
+              >
+                <PhotoIcon className="text-primaryPurple h-[22px]" />
+                <input
+                  type="file"
+                  ref={filePickerRef}
+                  hidden
+                  onChange={addImageToPost}
+                />
+              </div>
+
+              <div className="icon rotate-90">
+                <ChartBarIcon className="text-primaryPurple h-[22px]" />
+              </div>
+
+              <div className="icon" onClick={() => setShowEmojis(!showEmojis)}>
+                <FaceSmileIcon className="text-primaryPurple h-[22px]" />
+              </div>
+
+              <div className="icon">
+                <CalendarIcon className="text-primaryPurple h-[22px]" />
+              </div>
+
+              {showEmojis && (
+                <Picker
+                  onSelect={addEmoji}
+                  data={data}
+                  // style={{
+                  //   position: "absolute",
+                  //   marginTop: "465px",
+                  //   marginLeft: "-40px",
+                  //   maxWidth: "320px",
+                  //   borderRadius: "20px",
+                  // }}
+                  // theme="dark"
+                />
+              )}
+            </div>
             <button
-              class="bg-primaryPurple hover:bg-opacity-80 transition ease-in-out duration-200
-                            text-white font-bold py-2 px-4 rounded-full mb-4
-                            w-20"
-              onClick={() => setFeed((feed) => [{ text: message, userName: userName, userTag: userTag, userImg: session?.user?.image}, ...feed ])}
+              className="bg-primaryPurple text-white rounded-full px-4 py-1.5 font-bold shadow-md hover:bg-primaryPurplehover disabled:hover:bg-primaryPurple disabled:opacity-50 disabled:cursor-default"
+              disabled={!input && !selectedFile}
+              onClick={sendPost}
             >
               Post
             </button>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
