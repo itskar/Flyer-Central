@@ -9,8 +9,10 @@ const NewsButtons = (props) => {
     return (
         <div className="pl-5 newsHoverAnimation">
             <div className="py-1">
-                <p className="text-xs text-medgray">NCAA Football ∙ {timeStamp}</p>
-                <p className="text-lg pt-1">Utah at USC</p>
+                <a href={props.link}>
+                    <p className="text-xs text-medgray">{props.source} ∙ {props.timeStamp}</p>
+                    <p>{props.title}</p>
+                </a>
             </div>
             
         </div>
