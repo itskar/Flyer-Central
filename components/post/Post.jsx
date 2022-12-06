@@ -19,6 +19,7 @@ import {
   ArrowPathRoundedSquareIcon as ArrowPathRoundedSquareIconFilled,
 } from "@heroicons/react/24/solid";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Moment from "react-moment";
@@ -79,18 +80,22 @@ function Post({ id, post, postPage }) {
       onClick={() => router.push(`/${id}`)}
     >
       {!postPage && (
-        <img
+        <Image
           src={post?.userImg}
           alt=""
+          width={50}
+          height={50}
           className="h-11 w-11 rounded-full mr-4"
         />
       )}
       <div className="flex flex-col space-y-2 select-none w-full">
         <div className={`flex ${!postPage && "justify-between"}`}>
           {postPage && (
-            <img
+            <Image
               src={post?.userImg}
-              alt="Profile Pic"
+              alt="Profile Picture"
+              width={50}
+              height={50}
               className="h-11 w-11 rounded-full mr-4"
             />
           )}
@@ -104,7 +109,9 @@ function Post({ id, post, postPage }) {
                 {post?.username}
               </h4>
               <span
-                className={`text-sm sm:text-[15px] select-none ${!postPage && "ml-1.5"}`}
+                className={`text-sm sm:text-[15px] select-none ${
+                  !postPage && "ml-1.5"
+                }`}
               >
                 @{post?.tag}
               </span>
