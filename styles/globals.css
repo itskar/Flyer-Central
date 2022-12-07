@@ -18,7 +18,7 @@
   }
 
   .newsHoverAnimation {
-    @apply hover:bg-[#d9d9d9] hover:bg-opacity-10 cursor-pointer w-[40px] h-[40px] xl:w-auto xl:h-auto xl:py-2 xl:px-2 lg:w-auto lg:h-auto transition duration-200 ease-in-out;
+    @apply hover:bg-[#d9d9d9] hover:bg-opacity-10 cursor-pointer w-[40px] h-[40px] xl:w-[auto] xl:h-auto xl:py-2 xl:px-2 lg:w-auto lg:h-auto transition duration-200 ease-in-out;
   }
 
   .icon {

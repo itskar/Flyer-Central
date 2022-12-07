@@ -62,7 +62,7 @@ export async function getServerSideProps() {
   var res = await fetch(`https://newsapi.org/v2/everything?sources=abc-news&q=chicago&from=${lastWeek}&to=${currentDate}&sortBy=publishedAt&apiKey=9e2ffd0a83f84d5bbf58645b5dca4350`)
   var json = await res.json()
   var newsArticles = json.articles
-  var data = newsArticles.slice(0,6)
+  var data = newsArticles.slice(0,10)
   
 
   // Pass data to the page via props
