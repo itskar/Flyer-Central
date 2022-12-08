@@ -5,7 +5,6 @@ import Login from "../components/login/Login";
 import Head from "next/head";
 import News from "../components/news/News";
 import { useState } from "react";
-import axios from "axios";
 
 export default function Home({data}) {
   const pageName = "Home";
@@ -59,7 +58,7 @@ export async function getServerSideProps() {
   let currentDate = `${year}-${month}-${day}`;
   let lastWeek = `${year}-${month}-${day-7}`;
 
-  var res = await fetch(`https://newsapi.org/v2/everything?sources=abc-news&q=chicago&from=${lastWeek}&to=${currentDate}&sortBy=publishedAt&apiKey=9e2ffd0a83f84d5bbf58645b5dca4350`)
+  var res = await fetch(`https://newsapi.org/v2/everything?sources=abc-news&q=chicago&from=${lastWeek}&to=${currentDate}&sortBy=publishedAt&apiKey=${process.env.NEWS_API_KEY}`)
   var json = await res.json()
   var newsArticles = json.articles
   var data = newsArticles.slice(0,10)
