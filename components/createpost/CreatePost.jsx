@@ -129,6 +129,7 @@ const CreatePost = () => {
                 <input
                   type="file"
                   ref={filePickerRef}
+                  accept="image/x-png,image/gif,image/jpeg"
                   hidden
                   onChange={addImageToPost}
                 />
