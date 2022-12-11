@@ -30,9 +30,6 @@ module.exports = {
     extend: {
       fontFamily: {
         Belleza: ["Belleza", ...defaultTheme.fontFamily.sans],
-      },
-      backgroundImage: {
-        login : "url('/public/static/The-Encounter.jpg')"
       }
     },
   },
