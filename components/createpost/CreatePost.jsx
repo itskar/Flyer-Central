@@ -159,7 +159,7 @@ const CreatePost = () => {
               )}
             </div>
             <button
-              className="bg-primaryPurple select-none text-textWhitePrimary rounded-full px-4 py-1.5 font-bold shadow-md hover:bg-primaryPurplehover disabled:hover:bg-primaryPurple disabled:opacity-50 disabled:cursor-default"
+              className="bg-primaryPurple select-none text-textWhitePrimary rounded-full px-4 py-1.5 font-bold shadow-md hover:bg-primaryPurplehover buttonAnimation disabled:hover:bg-primaryPurple disabled:opacity-50 disabled:cursor-default"
               disabled={!input.trim() && !selectedFile}
               onClick={sendPost}
             >

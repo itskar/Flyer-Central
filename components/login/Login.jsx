@@ -19,7 +19,7 @@ const LoginInputForm = () => {
           <div className="w-72">
             <div className="flex justify-center">
               <button
-                className="bg-[#15161D] hover:bg-[#363636] text-white w-72 py-3 font-bold rounded-full"
+                className="bg-[#15161D] buttonAnimation hover:bg-[#363636]  text-white w-72 py-3 font-bold rounded-full"
                 onClick={() => signIn("google", {callbackUrl: "/"})}
               >
                 Sign in with Google
@@ -32,7 +32,7 @@ const LoginInputForm = () => {
             </div>
             <div className="flex justify-center">
               <button
-                className="bg-primaryPurple hover:bg-primaryPurplehover text-white w-72 py-3 font-bold rounded-full"
+                className="bg-primaryPurple buttonAnimation hover:bg-primaryPurplehover text-white w-72 py-3 font-bold rounded-full"
                 onClick={() => signIn("google", {callbackUrl: "/"})}
               >
                 Sign in with Lewis
