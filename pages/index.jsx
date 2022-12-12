@@ -33,7 +33,7 @@ export default function Home({data}) {
       </div>
     );
   }
-  return (
+  return ( 
     <div>
       <Head>
         <title>Flyer Central | {pageName}</title>

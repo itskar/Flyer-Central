@@ -12,6 +12,7 @@ import {
   HeartIcon,
   ChatBubbleLeftIcon,
   ArrowPathRoundedSquareIcon,
+  ShareIcon,
   TrashIcon,
 } from "@heroicons/react/24/outline";
 import {
@@ -77,7 +78,7 @@ function Post({ id, post, postPage }) {
   return (
     <div
       className="p-3 flex cursor-pointer border-b border-darkgray"
-      onClick={() => router.push(`/${id}`)}
+      onClick={() => router.push(`/postId=${id}`)}
     >
       {!postPage && (
         <Image
@@ -139,7 +140,7 @@ function Post({ id, post, postPage }) {
           className="rounded-2xl select-none max-h-[700px] object-cover mr-2"
         />
         <div
-          className={`text-lightgray flex justify-between w-11/12 ml-2 ${
+          className={`text-lightgray flex justify-between w-11/12 ${
             postPage && "mx-auto"
           }`}
         >
@@ -190,7 +191,7 @@ function Post({ id, post, postPage }) {
             )}
           </div>
 
-          {session.user.uid === post?.id && (
+          {session.user.uid === post?.id ? (
             <div
               className="flex items-center space-x-1 group"
               onClick={(e) => {
@@ -203,7 +204,16 @@ function Post({ id, post, postPage }) {
                 <TrashIcon className="h-[18px] group-hover:text-likeRed" />
               </div>
             </div>
-          )}
+          ): (
+            <div
+              className="flex items-center space-x-1 group"
+            >
+              <div className="icon group-hover:bg-red-600/10">
+                <ShareIcon className="h-[18px] group-hover:text-textWhiteSecondary" />
+              </div>
+            </div>
+          )
+          }
         </div>
       </div>
     </div>
