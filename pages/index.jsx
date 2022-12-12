@@ -1,10 +1,9 @@
 import Feed from "../components/feed/Feed";
 import Sidebar from "../components/sidebar/Sidebar";
-import { getProviders, getSession, useSession } from "next-auth/react";
+import {useSession } from "next-auth/react";
 import Login from "../components/login/Login";
 import Head from "next/head";
 import News from "../components/news/News";
-import { useState } from "react";
 
 export default function Home({data}) {
   const pageName = "Home";
