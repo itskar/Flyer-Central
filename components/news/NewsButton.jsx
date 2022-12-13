@@ -14,7 +14,7 @@ const NewsButton = (props) => {
           <p className="leading-tight pb-1">{props.title}</p>
           {props.imageSrc != skipImage && (
             <div className="w-1/2 h-auto rounded-md overflow-clip">
-              <Image src={props.imageSrc} width={500} height={500} />
+              <Image src={props.imageSrc} alt={props.source} width={500} height={500} />
             </div>
           )}
         </a>
