@@ -21,6 +21,7 @@ export default function Notifications({data}) {
 }
 
 export async function getServerSideProps() {
+  
   const date = new Date();
 
   let day = date.getDate();
@@ -30,10 +31,20 @@ export async function getServerSideProps() {
   let currentDate = `${year}-${month}-${day}`;
   let lastWeek = `${year}-${month}-${day-7}`;
 
-  var res = await fetch(`https://newsapi.org/v2/everything?sources=abc-news&q=chicago&from=${lastWeek}&to=${currentDate}&sortBy=publishedAt&apiKey=${process.env.NEWS_API_KEY}`)
-  var json = await res.json()
-  var newsArticles = json.articles
-  var data = newsArticles.slice(0,10)
+  var res = await fetch(`https://newsapi.org/v2/everything?sources=abc-news&q=chicago&from=${lastWeek}&to=${currentDate}&sortBy=popularity&apiKey=9e2ffd0a83f84d5bbf58645b5dca4350`);
+  var json = await res.json();
+  var newsArticles = json.articles;
 
+  var temp = []
+  var filter = newsArticles.filter((item) => {
+    if(!temp.includes(item.title)){
+      temp.push(item.title)
+      return true;
+    }
+    })
+  
+  var data = filter.slice(0,10)
+
+  // Pass data to the page via props
   return { props: { data } }
 }
