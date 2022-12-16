@@ -4,7 +4,6 @@ import { SparklesIcon } from "@heroicons/react/24/outline";
 import {useState, useEffect} from "react";
 import { onSnapshot, collection, query, orderBy } from "@firebase/firestore";
 import { db } from "../../firebase";
-import { useSession } from "next-auth/react";
 
 const Feed = () => {
   const [feed, setFeed] = useState([])

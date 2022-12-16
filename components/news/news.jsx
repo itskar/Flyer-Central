@@ -1,4 +1,4 @@
-import { useState, useEffect, use } from "react";
+
 import NewsButton from "./NewsButton";
 
 function News({ data }) {
@@ -9,7 +9,7 @@ function News({ data }) {
       <div className="backdrop-brightness-150 rounded-xl xl:w-auto lg:w-auto ">
         <div className="flex flex-col">
           <div className="mx-5 mt-3 mb-3">
-            <p className="font-bold text-xl">What's happening</p>
+            <p className="font-bold text-xl">What&apos;s happening</p>
           </div>
           {data.map((article) => (
             <NewsButton
